@@ -26,7 +26,6 @@ GameObject.prototype.destroy = function destroy(){
   return `${this.name} was removed from the game.`;
 };
 
-
 //This below example works. Prototype inheritance is working, destroy is linked to the GameObject prototype.
 // const box = new GameObject({
 //   createdAt: Date(),
@@ -48,17 +47,31 @@ GameObject.prototype.destroy = function destroy(){
   * should inherit destroy() from GameObject's prototype
 */
 
-
 function CharacterStats(attributes) {
   GameObject.call(this, attributes)
   this.healthPoints = attributes.healthPoints;
 }
 
+CharacterStats.prototype = Object.create(GameObject.prototype);
+
 CharacterStats.prototype.takeDamage = function takeDamage() {
-  return `${GameObject.name} took damage.`;
-}
+  return `${this.name} took damage.`;
+};
 
 
+//UNIT TEST - Below code works. Includes the takeDamage code from the CharacterStats prototype.
+// const heavyBag = new CharacterStats({
+//   createdAt: Date(),
+//   name: "punching bag",
+//   dimensions: {
+//     length: 2,
+//     width: 2,
+//     height: 2,
+//   },
+//   healthPoints: 5,
+// });
+
+// console.log(heavyBag);
 
 /*
   === Humanoid (Having an appearance or character resembling that of a human.) ===
