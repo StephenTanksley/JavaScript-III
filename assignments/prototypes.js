@@ -7,7 +7,7 @@
   
   Each constructor function has unique properties and methods that are defined in their block comments below:
 */
-  
+
 /*
   === GameObject ===
   * createdAt
@@ -26,7 +26,7 @@ GameObject.prototype.destroy = function destroy(){
   return `${this.name} was removed from the game.`;
 };
 
-//This below example works. Prototype inheritance is working, destroy is linked to the GameObject prototype.
+//UNIT TEST I - Prototype inheritance is working, destroy is linked to the GameObject prototype.
 // const box = new GameObject({
 //   createdAt: Date(),
 //   name: "boxy",
@@ -59,7 +59,7 @@ CharacterStats.prototype.takeDamage = function takeDamage() {
 };
 
 
-//UNIT TEST - Below code works. Includes the takeDamage code from the CharacterStats prototype.
+//UNIT TEST II - Below code works. Includes the takeDamage code from the CharacterStats prototype.
 // const heavyBag = new CharacterStats({
 //   createdAt: Date(),
 //   name: "punching bag",
@@ -104,7 +104,7 @@ Humanoid.prototype.greet = function greet() {
 
 // Test your work by un-commenting these 3 objects and the list of console logs below:
 
-/*
+///*
   const mage = new Humanoid({
     createdAt: new Date(),
     dimensions: {
@@ -166,9 +166,75 @@ Humanoid.prototype.greet = function greet() {
   console.log(mage.takeDamage()); // Bruce took damage.
   console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
 
+//*/
+
   // Stretch task: 
   // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
   // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
   // * Create two new objects, one a villain and one a hero and fight it out with methods!
 
-  */
+//  function Hero(attributes) {
+//   Humanoid.call(this, attributes)
+// };
+
+// function Villain(attributes) {
+//   Humanoid.call(this, attributes)
+// };
+
+// //hero object
+// const mario = new Hero({
+//   createdAt: new Date(),
+//   dimensions: {
+//     length: 1,
+//     width: 2,
+//     height: 3,
+//   },
+//   healthPoints: 10,
+//   name: 'Mario',
+//   team: 'Mushroom Kingdom',
+//   weapons: [
+//     'Mushroom',
+//     'Flower',
+//   ],
+//   language: 'Italian',
+// });
+
+// function damage(attacked) {
+//   attacked.healthPoints = attacked.healthPoints - Math.floor(Math.random() * Math.floor(2));
+// }
+
+// Humanoid.prototype.greet = function greet() {
+//   return `${this.name} offers a greeting in ${this.language}.`;
+// };
+
+// console.log(damage(mario));
+
+
+// // (Bowser attacking)
+
+// /* We need to have a method in the Bowser object that takes an argument for who gets attacked and then lowers
+// that argument's health points.
+
+// function damage(attacked) {
+//   attacked.healthPoints = attacked.healthpoints - Math.floor(Math.random() * Math.floor(2));
+// }
+
+// */
+// //villain object
+// const bowser = new Villain({
+//   createdAt: new Date(),
+//   dimensions: {
+//     length: 2,
+//     width: 3,
+//     height: 5,
+//   },
+//   healthPoints: 20,
+//   name: 'Bowser',
+//   team: 'Koopa Kingdom',
+//   weapons: [
+//     'Fire Breath',
+//     'Bombombs',
+//   ],
+//   language: 'Incoherent growling',
+// });
+
